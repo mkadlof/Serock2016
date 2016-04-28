@@ -21,8 +21,26 @@ def savePointsAsPdb(points, filename):
     pdbFileContent = atoms + connects
     open(filename, 'w').write(pdbFileContent)
 
+def savePointsAsGro(points, filename, comment="komentarz"):
+    n = len(points)
+    x,y,z = zip(*points)
+    d = max(x+y+z)
+    l = ["{}\n".format(comment)]
+    l.append(str(n)+'\n')
+    for i in xrange(n):
+        x = points[i][0]
+        y = points[i][1]
+        z = points[i][2]
+        w = '{:5}{:5}{:5}{:5}{:8.3f}{:8.3f}{:8.3f}\n'.format(i,"BEA","B",i+1,x,y,z)
+        l.append(w)
+    l.append('{0:5f} {0:5f} {0:5f}'.format(d))
+    filename = '{}'.format(filename)
+    open(filename, 'w').writelines(l)
+    return filename
+
 def main():
     savePointsAsPdb(points, 'mojaStruktura.pdb')
+    savePointsAsGro(points, 'mojaStruktura.gro')
 
 if __name__ == '__main__':
     main()
