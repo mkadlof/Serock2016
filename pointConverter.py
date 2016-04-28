@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import division
+
 points = [(1.1, 2.3, 3.4),
           (0.1, 5.3, 4.2),
           (9.2, 4.3, 1.3)]
@@ -28,9 +30,9 @@ def savePointsAsGro(points, filename, comment="komentarz"):
     l = ["{}\n".format(comment)]
     l.append(str(n)+'\n')
     for i in xrange(n):
-        x = points[i][0]
-        y = points[i][1]
-        z = points[i][2]
+        x = points[i][0]/10
+        y = points[i][1]/10
+        z = points[i][2]/10
         w = '{:5}{:5}{:5}{:5}{:8.3f}{:8.3f}{:8.3f}\n'.format(i,"BEA","B",i+1,x,y,z)
         l.append(w)
     l.append('{0:5f} {0:5f} {0:5f}'.format(d))
