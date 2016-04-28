@@ -7,6 +7,10 @@ import argparse
 
 
 def randomAtoms(n, d):
+    """Generuje losowe położenie ułożenie atomów.
+        n - liczba atomów
+        d - rozmiar pudełka
+    """
     atoms = []
     for i in xrange(n):
         x = uniform(0,d)
@@ -16,6 +20,10 @@ def randomAtoms(n, d):
     return atoms
 
 def polimerLine(n):
+    """
+        Atomy są ułożone na linii w osi X począwszy od punktu (0,0)
+        n - liczba atomów
+    """
     atoms = []
     for i in xrange(n):
         x = i
@@ -25,6 +33,9 @@ def polimerLine(n):
     return atoms
 
 def polimerCircle(n):
+    """
+        Atomy ułożone są na okręgu.
+    """
     from math import cos
     from math import sin
     from math import pi
