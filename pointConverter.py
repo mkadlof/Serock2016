@@ -7,6 +7,17 @@ points = [(1.1, 2.3, 3.4),
           (0.1, 5.3, 4.2),
           (9.2, 4.3, 1.3)]
 
+def savePointsAsXYZ(points, filename):
+    """Przyjmuje liste krotek trzy elementowych i zapisuje je do pliku xyz o nazwie filename"""
+    atoms = ''
+    n = len(points)
+    for i in xrange(n):
+        x = points[i][0]
+        y = points[i][1]
+        z = points[i][2]
+        atoms += ('{}\t{}\t{}\n'.format(x, y, z))
+    open(filename, 'w').write(atoms)
+
 def savePointsAsPdb(points, filename):
     """Przyjmuje liste krotek trzy elementowych i zapisuje je do pliku PDB o nazwie filename"""
     atoms = ''
