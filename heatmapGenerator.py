@@ -9,7 +9,7 @@ from math import sqrt
 
 def d(p1, p2):
     """point - krotka trzyelementowa"""
-    return sqrt( (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 + (p1[2]-p1[2])**2 )
+    return sqrt( (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 + (p1[2]-p2[2])**2 )
 
 def fileToListOfPoints(filename):
     s = [i.strip().split() for i in open(filename)]
@@ -33,7 +33,7 @@ def createHeatmap(matrix, out_path = ''):
     """
    
     plt.clf()
-    plt.imshow(matrix, interpolation='none', cmap='Blues')
+    plt.imshow(matrix, interpolation='none', cmap='Blues_r')
 
     #pcm = ax[1].pcolor(X, Y, Z1, cmap='PuBu_r')
     #plt.colorbar(pcm, ax=ax[1], extend='max')
