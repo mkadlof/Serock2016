@@ -15,7 +15,7 @@ def fileToListOfPoints(filename):
     s = [i.strip().split() for i in open(filename)]
     points = []
     for i in s:
-        points.append((float(i[0]), float(i[1]), float(i[0])))
+        points.append((float(i[0]), float(i[1]), float(i[2])))
     return points
 
 def structureToMatrix(points):
