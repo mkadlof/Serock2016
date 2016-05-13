@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from math import sqrt
 
 def d(p1, p2):
-    """point - krotka trzyelementowa"""
+    """point - three element tuple"""
     return sqrt( (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 + (p1[2]-p2[2])**2 )
 
 def fileToListOfPoints(filename):
@@ -28,15 +28,12 @@ def structureToMatrix(points):
 
 def createHeatmap(matrix, out_path = ''):
     """
-        Tworzy obrazek z heatmapa na podstawie macierzy 2D.
-        Domyslnie wyswietla ja w okienku, jezeli podano sciezke - zapisuje do pliku
+        creates heatmap based on 2D matrix
+        By default it shown in window, but may be saved to file if out_path provided.
     """
    
     plt.clf()
     plt.imshow(matrix, interpolation='none', cmap='Blues_r')
-
-    #pcm = ax[1].pcolor(X, Y, Z1, cmap='PuBu_r')
-    #plt.colorbar(pcm, ax=ax[1], extend='max')
 
     if len(out_path) == 0:
         plt.show()    
